@@ -1,6 +1,7 @@
 body{
     background-color: #F7ECDE;
     font-family: "PT Sans Caption", sans-serif;
+    min-height: 100vh;
 }
 header{
     border-bottom: 1px dashed black;
