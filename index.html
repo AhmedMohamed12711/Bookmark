@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Bookmark</title>
+</head>
+<body>
+    <header class="container d-flex justify-content-center align-items-center ">
+        <h1 class="py-5 position-relative ">Bookmarker</h1>
+    </header>
+    <div class=" py-4 d-flex flex-column justify-content-center align-items-center">
+        <h2 class="title-form py-4 d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-bookmark px-2"></i>    
+            Bookmark your favorite sites
+            <i class="fa-solid fa-bookmark px-2"></i>
+        </h2>
+    </div>
+    <div class="form container">
+        <form>
+            <div class="sitenam d-flex justify-content-center">
+                <div class="mb-3 input">
+                    <label for="markbookName" class="form-label">
+                        <i class="fa-solid fa-book-bookmark pe-2"></i>
+                        Site Name</label>
+                    <input type="text" class="form-control rounded-3 " id="markbookName" placeholder="Bookmark Name" oninput="validation(this) ">
+                </div>
+            </div>
+            <div class="siteurl d-flex justify-content-center">
+                <div class="mb-3 input">
+                    <label for="markbookName" class="form-label">
+                        <i class="fa-solid fa-link pe-2"></i>
+                        Site URL</label>
+                    <input type="text" class="form-control rounded-3" id="markbookURL" placeholder="Website URL" oninput="validation(this)">
+                </div>
+            </div>
+            
+            <div class="submit-btn d-flex justify-content-center align-items-center py-4">
+                <button type="button" class=" button text-white px-5 py-2 rounded-3" onclick="submitButton()">Submit</button>
+            </div>
+            <div class="tablecontent">
+                <input type="text" class="form-control w-25 me-2 my-3" id="" oninput="search(this.value)" placeholder="Search WebsiteName">
+                <table  class="table bg-light text-center mt-4 ">
+                    <thead>
+                        <tr>
+                            <th class="text-capitalize">index</th>
+                            <th class="text-capitalize">Website Name</th>
+                            <th class="text-capitalize">Visit</th>
+                            <th class="text-capitalize">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableTitle">    
+                    </tbody>
+                </table>
+            </div>
+            
+        </form>
+    </div>
+
+
+    <div class="message-info position-absolute start-0 top-0 w-100 h-100 d-flex justify-content-center align-items-center d-none" id="message-info">
+        <div class="message-conent bg-white p-4 rounded-2 shadow-lg">
+            <header class="box-header w-100 d-flex justify-content-between align-items-center mb-4">
+                <div class="circles d-flex">
+                    <span class="rounded-circle me-2"></span>
+                    <span class="rounded-circle me-2"></span>
+                    <span class="rounded-circle me-2"></span>
+                </div>
+                <button class="btn border-0" id="closeBtn" onclick="closeMessage()">
+                    <i class="fa-solid fa-xmark close fs-3"></i>
+                </button>
+            </header>
+            <p class="m-0 pb-2">
+                Site Name or Url is not valid, Please follow the rules below :
+            </p>
+            <ol class="rules list-unstyled m-0">
+                <li>
+                <i class="fa-regular fa-circle-right p-2"></i>Site name must
+                contain at least 3 characters
+                </li>
+                <li>
+                <i class="fa-regular fa-circle-right p-2"></i>
+                Site URL must be a
+                valid one Example https://www.freecodecamp.org or http://www.freecodecamp.org 
+                or google.com.in or http://www.freecodecamp.org/news
+                freecodecamp.org/news or Google.com
+                </li>
+            </ol>
+        </div>
+    </div>
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
