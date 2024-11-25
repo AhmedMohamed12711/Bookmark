@@ -16,22 +16,35 @@ function submitButton() {
         window.alert('Please fill in both Site Name and Site URL.');
         return;
     }
-    if(validation(siteName)&&validation(siteUrl)){
-        var title = {
-            id:Date.now(),
-            Sname: siteName.value,
-            Surl: siteUrl.value
-        };
-        titleList.push(title);
-        localStorage.setItem('Titles', JSON.stringify(titleList));
-        clear();
-        display();
-    }
-    else{
-        messageinfo.classList.replace('d-none','d-block')
+
+    if (!validation(siteName) || !validation(siteUrl)) {
+        messageinfo.classList.replace('d-none', 'd-block');
+        return;
     }
 
+    
+    var checkExit = titleList.some(function (item) {
+        return item.Sname.trim().toLowerCase() === siteName.value.trim().toLowerCase() ||
+                item.Surl.trim().toLowerCase() === siteUrl.value.trim().toLowerCase();
+    });
+
+    if (checkExit) {
+        window.alert('The site name or URL already exists in the table!');
+        return;
+    }
+
+    var title = {
+        id: Date.now(),
+        Sname: siteName.value,
+        Surl: siteUrl.value
+    };
+
+    titleList.push(title);
+    localStorage.setItem('Titles', JSON.stringify(titleList));
+    clear();
+    display();
 }
+
 
 function clear() {
     siteName.value = null;
